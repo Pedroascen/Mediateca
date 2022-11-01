@@ -61,10 +61,11 @@ public class Inicio extends javax.swing.JFrame {
         separador = new javax.swing.JSeparator();
         btnSalir = new javax.swing.JPanel();
         lblSalir = new javax.swing.JLabel();
+        btnEliminar = new javax.swing.JPanel();
+        lblEliminar = new javax.swing.JLabel();
         pnlCenter = new javax.swing.JPanel();
         txtBarraBuscar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMostrar = new javax.swing.JTable();
 
@@ -78,6 +79,7 @@ public class Inicio extends javax.swing.JFrame {
         pnlSide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAgregar.setBackground(new java.awt.Color(100, 67, 104));
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnAgregarMousePressed(evt);
@@ -134,6 +136,7 @@ public class Inicio extends javax.swing.JFrame {
         pnlSide.add(separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 100, 10));
 
         btnSalir.setBackground(new java.awt.Color(135, 91, 140));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnSalirMousePressed(evt);
@@ -162,7 +165,40 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlSide.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 190, 50));
+        pnlSide.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 190, 50));
+
+        btnEliminar.setBackground(new java.awt.Color(116, 79, 122));
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminarMousePressed(evt);
+            }
+        });
+
+        lblEliminar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        lblEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-remove-20.png"))); // NOI18N
+        lblEliminar.setText("Eliminar Material");
+        lblEliminar.setIconTextGap(6);
+
+        javax.swing.GroupLayout btnEliminarLayout = new javax.swing.GroupLayout(btnEliminar);
+        btnEliminar.setLayout(btnEliminarLayout);
+        btnEliminarLayout.setHorizontalGroup(
+            btnEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEliminarLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(lblEliminar)
+                .addGap(32, 32, 32))
+        );
+        btnEliminarLayout.setVerticalGroup(
+            btnEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEliminarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnlSide.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 190, 50));
 
         getContentPane().add(pnlSide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 530));
 
@@ -191,14 +227,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         pnlCenter.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 87, 70, 25));
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEliminarMouseClicked(evt);
-            }
-        });
-        pnlCenter.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 90, -1));
 
         getContentPane().add(pnlCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, -30, 830, 120));
 
@@ -260,14 +288,15 @@ public class Inicio extends javax.swing.JFrame {
         materiales(busqueda);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+    private void btnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMousePressed
         // TODO add your handling code here:
         ShowInfo si = new ShowInfo();
         si.EliminarMaterial();
         dispose();
         Inicio ini = new Inicio();
         ini.setVisible(true);
-    }//GEN-LAST:event_btnEliminarMouseClicked
+        
+    }//GEN-LAST:event_btnEliminarMousePressed
 
     /**
      * @param args the command line arguments
@@ -454,13 +483,14 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnAgregar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JPanel btnEliminar;
     private javax.swing.JPanel btnSalir;
     private javax.swing.JLabel iconInicio;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAgregar;
+    private javax.swing.JLabel lblEliminar;
     private javax.swing.JLabel lblMediatecaTitulo;
     private javax.swing.JLabel lblSalir;
     private javax.swing.JPanel pnlCenter;
