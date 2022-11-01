@@ -388,7 +388,7 @@ public class Libro extends javax.swing.JFrame {
     
             
         ShowInfo si = new ShowInfo();
-        String codigo, titulo, autor, npaginas, editorial, isbn, anio;
+        String codigo, titulo, autor, npaginas, editorial, isbn, anio,unidades;
         codigo = lblCodigoMaterial.getText();
         titulo = txtTituloLibro.getText();
         autor = txtAutorLibro.getText();
@@ -396,7 +396,8 @@ public class Libro extends javax.swing.JFrame {
         editorial = txtEditorial.getText();
         isbn = txtISBN.getText();
         anio = txtPubYear.getText();
-        si.GuardarLibro(codigo, titulo, autor, npaginas, editorial, isbn, anio);
+        unidades = txtUnidadesLibros.getText();
+        si.GuardarLibro(codigo, titulo, autor, npaginas, editorial, isbn, anio,unidades);
         
         dispose();
         Inicio ini= new Inicio();

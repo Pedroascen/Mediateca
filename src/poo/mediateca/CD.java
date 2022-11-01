@@ -293,14 +293,15 @@ public class CD extends javax.swing.JFrame {
     private void btnGuardarCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCDActionPerformed
        
         ShowInfo si = new ShowInfo();
-        String codigo, titulo, artista, genero, duracion, ncanciones;
+        String codigo, titulo, artista, genero, duracion, ncanciones, unidades;
         codigo = lblCodigoMaterial.getText();
         titulo = txtTituloCD.getText();
         artista = txtArtistaCD.getText();
         genero = txtGeneroCD.getText();
         duracion = txtDuracionCD.getText();
         ncanciones = txtNumCanciones.getText();
-        si.GuardarCD(codigo, titulo, artista, genero, duracion, ncanciones); 
+        unidades = txtUnidades.getText();
+        si.GuardarCD(codigo, titulo, artista, genero, duracion, ncanciones,unidades); 
         
         dispose();
         Inicio ini = new Inicio();

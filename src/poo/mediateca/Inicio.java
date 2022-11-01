@@ -323,6 +323,7 @@ public class Inicio extends javax.swing.JFrame {
             while (rs.next()) {
                 String codMaterial = rs.getString(1);
                 String titulo = rs.getString(2);
+                String unidades = rs.getString(4);
                 
                 // Despues se ocupara para obtener la informacion de cada material 
                 String materialID = codMaterial +":"+ rs.getString(3);
@@ -352,7 +353,6 @@ public class Inicio extends javax.swing.JFrame {
         JTable table;
         JButton renderButton;
         JButton editButton;
-        JButton deleteButton;
         String text;
 
         public ButtonColumn(JTable table, int column)
@@ -364,10 +364,6 @@ public class Inicio extends javax.swing.JFrame {
             editButton = new JButton();
             editButton.setFocusPainted( false );
             editButton.addActionListener( this );
-            
-            deleteButton = new JButton();
-            deleteButton.setFocusPainted( false );
-            deleteButton.addActionListener( this );
 
             TableColumnModel columnModel = table.getColumnModel();
             columnModel.getColumn(column).setCellRenderer( this );
@@ -421,12 +417,10 @@ public class Inicio extends javax.swing.JFrame {
             // Guardamos el valor de materialID en la propiedad name del button 
             // porque despues se va a utilizar 
             editButton.setName(text);
-            deleteButton.setName(text);
             
              // Reemplazamos el valor de materialID porque no queremos que muestre al usuario 
             // y al usuario que se le muestre ver info
             editButton.setText("Ver Info");
-            deleteButton.setText("Eliminar");
             return editButton;
         }
 

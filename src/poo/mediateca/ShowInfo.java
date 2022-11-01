@@ -79,6 +79,7 @@ public class ShowInfo {
             lib.txtEditorial.setText(material.get(5));
             lib.txtISBN.setText(material.get(6));
             lib.txtPubYear.setText(material.get(7));
+            lib.txtUnidadesLibros.setText(material.get(8));
             lib.setVisible(true);
         }
 
@@ -89,6 +90,7 @@ public class ShowInfo {
             rev.txtEditorialRevista.setText(material.get(3));
             rev.txtPeriodoRevista.setText(material.get(4));
             rev.txtFechaPublicacion.setText(material.get(5));
+            rev.txtUnidadesRevista.setText(material.get(6));
             rev.setVisible(true);
         }
         if (tipoID.equals("6")) {
@@ -99,6 +101,7 @@ public class ShowInfo {
             cd.txtDuracionCD.setText(material.get(5));
             cd.txtGeneroCD.setText(material.get(4));
             cd.txtNumCanciones.setText(material.get(6));
+            cd.txtUnidades.setText(material.get(7));
             cd.setVisible(true);
         }
         if (tipoID.equals("7")) {
@@ -114,14 +117,14 @@ public class ShowInfo {
     }
 
     /* ACTUALIZAR Y AGREGAR NUEVOS MATERIALES */
-    public void GuardarRevista(String codigo, String titulo, String editorial, String periodo, String fecha) {
+    public void GuardarRevista(String codigo, String titulo, String editorial, String periodo, String fecha, String unidades) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         // CALL `mediateca`.`new_upd_revista`('REV00005', 'Test Revista 1 ', 'Test Revista 1', 'Test Revista 1', '2022-10-29');
         try {
             conn = data.Conection.getConnection();
-            stmt = conn.prepareStatement("CALL `mediateca`.`new_upd_revista`('" + codigo + "','" + titulo + "','" + editorial + "','" + periodo + "','" + fecha + "')");
+            stmt = conn.prepareStatement("CALL `mediateca`.`new_upd_revista`('" + codigo + "','" + titulo + "','" + editorial + "','" + periodo + "','" + fecha + "','" + unidades + "')");
             rs = stmt.executeQuery();
 
         } catch (SQLException e) {
@@ -135,14 +138,14 @@ public class ShowInfo {
         JOptionPane.showMessageDialog(null, "Datos Guardados.", "Alert", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void GuardarCD(String codigo, String titulo, String artista, String genero, String duracion, String ncanciones) {
+    public void GuardarCD(String codigo, String titulo, String artista, String genero, String duracion, String ncanciones, String unidades) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
         try {
             conn = data.Conection.getConnection();
-            stmt = conn.prepareStatement("CALL `mediateca`.`new_upd_cd`('" + codigo + "','" + titulo + "','" + artista + "','" + genero + "','" + duracion + "', " + ncanciones + ")");
+            stmt = conn.prepareStatement("CALL `mediateca`.`new_upd_cd`('" + codigo + "','" + titulo + "','" + artista + "','" + genero + "','" + duracion + "', " + ncanciones + ",'" + unidades + "')");
             rs = stmt.executeQuery();
 
         } catch (SQLException e) {
@@ -177,14 +180,14 @@ public class ShowInfo {
         JOptionPane.showMessageDialog(null, "Datos Guardados.", "Alert", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void GuardarLibro(String codigo, String titulo, String autor, String npaginas, String editorial, String isbn, String anio) {
+    public void GuardarLibro(String codigo, String titulo, String autor, String npaginas, String editorial, String isbn, String anio,String unidades) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
         try {
             conn = data.Conection.getConnection();
-            stmt = conn.prepareStatement("CALL `mediateca`.`new_upd_libro`('" + codigo + "','" + titulo + "','" + autor + "'," + npaginas + ",'" + editorial + "', " + isbn + ", " + anio + " )");
+            stmt = conn.prepareStatement("CALL `mediateca`.`new_upd_libro`('" + codigo + "','" + titulo + "','" + autor + "'," + npaginas + ",'" + editorial + "', " + isbn + ", " + anio + ",'" + unidades + "')");
             rs = stmt.executeQuery();
 
         } catch (SQLException e) {
@@ -211,22 +214,19 @@ public class ShowInfo {
             conn = data.Conection.getConnection();
             String MaterialID;
             MaterialID = JOptionPane.showInputDialog("Ingrese el código del material a elminar:");
-            stmt = conn.prepareStatement("DELETE FROM material WHERE codigoMaterial= '"+MaterialID+"'");
-            rows = stmt.executeUpdate();
-            System.out.println("Resultado del "+rs);
-            if(rows==1){
-                JOptionPane.showMessageDialog(null,"Registro eliminado...");
-            }else{
-               JOptionPane.showMessageDialog(null,"Registro no eliminado verifique el codigo del material.");
-            }
-
+            stmt = conn.prepareStatement("CALL `mediateca`.`delete_material`('"+ MaterialID + "')");
+            stmt.executeQuery();
+            System.out.println("Resultado del "+stmt);
+            
         } catch (SQLException e) {
+             JOptionPane.showMessageDialog(null, "Algo salio mal. :(", "Alert", JOptionPane.INFORMATION_MESSAGE);
             e.printStackTrace();
         } finally {
             Conection.close(rs);
             Conection.close(stmt);
             Conection.close(conn);
         }
+        JOptionPane.showMessageDialog(null, "Material borrado.", "Alert", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }

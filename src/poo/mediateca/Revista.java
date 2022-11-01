@@ -291,7 +291,7 @@ public class Revista extends javax.swing.JFrame {
 
     private void btnGuardarRevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarRevistaActionPerformed
         ShowInfo si = new ShowInfo();
-        String codigo, titulo, editorial, periodo, fecha;
+        String codigo, titulo, editorial, periodo, fecha, unidades;
         
         // obtenemos los valores de los texfields y los guardamos en las variables 
         codigo = lblCodigoMaterial.getText();
@@ -299,9 +299,11 @@ public class Revista extends javax.swing.JFrame {
         editorial = txtEditorialRevista.getText();
         periodo = txtPeriodoRevista.getText();
         fecha = txtFechaPublicacion.getText();
+        unidades = txtUnidadesRevista.getText();
+        
         
         // ejecutamos la funcion guardar revista y se envia la informacion 
-        si.GuardarRevista(codigo, titulo, editorial, periodo, fecha);
+        si.GuardarRevista(codigo, titulo, editorial, periodo, fecha,unidades);
         
         dispose();
         Inicio ini= new Inicio();
