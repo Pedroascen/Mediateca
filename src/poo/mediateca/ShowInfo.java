@@ -226,7 +226,7 @@ public class ShowInfo {
             Conection.close(stmt);
             Conection.close(conn);
         }
-        JOptionPane.showMessageDialog(null, "Material borrado.", "Alert", JOptionPane.INFORMATION_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "Material borrado.", "Alert", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
