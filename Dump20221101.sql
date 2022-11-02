@@ -43,7 +43,7 @@ CREATE TABLE `cd` (
 
 LOCK TABLES `cd` WRITE;
 /*!40000 ALTER TABLE `cd` DISABLE KEYS */;
-INSERT INTO `cd` VALUES (1,'CDA00001','Test','Test','11:12:00',3),(2,'CDA00002','Test','Test','11:12:00',3),(3,'CDA00003','Test cd 15','Test cd 15','11:12:00',3),(4,'CDA00004','Testxxxxx','Testddddd','11:12:00',3),(5,'CDA00005','Test','Test','11:12:00',3),(7,'CDA00007','AVICII','ROCK','00:00:00',20);
+INSERT INTO `cd` VALUES (1,'CDA00001','Varios','Clásica','01:12:00',14),(2,'CDA00002','Eagles','Rock','11:12:00',11),(3,'CDA00003','Michael Jackson','Pop','11:12:00',12),(4,'CDA00004','Elton John','Pop','11:12:00',10),(5,'CDA00005','Bob Marley & The Wailers','Reggae','11:12:00',12),(6,'CDA00006','Varios','Electrónica','01:15:07',15);
 /*!40000 ALTER TABLE `cd` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,7 +72,7 @@ CREATE TABLE `dvd` (
 
 LOCK TABLES `dvd` WRITE;
 /*!40000 ALTER TABLE `dvd` DISABLE KEYS */;
-INSERT INTO `dvd` VALUES (1,'DVD00001','Test DVD','00:12:00','Test DVD'),(3,'DVD00003','Test DVD XXXX','00:12:00','Test DVD XXXX'),(4,'DVD00004','Test DVD1','00:12:00','Test DVD1'),(5,'DVD00005','Test DVD','00:12:00','Test DVD');
+INSERT INTO `dvd` VALUES (1,'DVD00001','Peter Jackson','02:58:00','Fantasía'),(3,'DVD00003','Francis Ford Coppola','02:55:00','Drama'),(4,'DVD00004','George Lucas','02:04:00','Ciencia ficción');
 /*!40000 ALTER TABLE `dvd` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +103,7 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
-INSERT INTO `libro` VALUES (1,'LIB00001','Test Libro',3,'Test Libro',345667,2022),(2,'LIB00002','Test Libro 1',3,'Test Libro 1',345667,2022),(3,'LIB00003','Test Libro',3,'Test Libro',345667,2022),(4,'LIB00004','Test LIBbro',45,'Test Libro',34566555,2020);
+INSERT INTO `libro` VALUES (1,'LIB00001','Gabriel García Márquez',471,'Editorial Sudamericana',345667,2016),(2,'LIB00002','Miguel de Cervantes',1342,'Punto de Lectura',345667,1997),(3,'LIB00003','Test Libro',112,'Emecé',1234567890,1973),(4,'LIB00004','Homero',312,'CreateSpace Independent Publishing Platform',34566555,1987),(5,'LIB00005','Jane Austen',354,'Planeta / Austral',1234,2016);
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `material` (
 
 LOCK TABLES `material` WRITE;
 /*!40000 ALTER TABLE `material` DISABLE KEYS */;
-INSERT INTO `material` VALUES ('CDA00001','Test DVD - 0 UPDATE',6,10),('CDA00002','Test DVD - 0 UPDATE',6,15),('CDA00003','Test cd 15',6,0),('CDA00004','Test DVD - xxxx',6,0),('CDA00005','Test DVD - 0 UPDATE',6,0),('CDA00007','XXXXXXXXX',6,0),('DVD00001','Test DVD - 0 UPDATE',7,0),('DVD00003','Test DVD XXXX',7,0),('DVD00004','Test DVD - 1 UPDATE',7,0),('DVD00005','Test DVD - 0 UPDATE',7,0),('LIB00001','Test DVD - 0 UPDATE',4,0),('LIB00002','Test Libro 1',4,0),('LIB00003','Test DVD - 0 UPDATE',4,0),('LIB00004','Test DVD - 0 LIB',4,0),('REV00001','Test DVD - 0 UPDATE',5,0),('REV00002','Test DVD - R UPDATE',5,0),('REV00003','Test DVD - 0 UPDATE',5,35),('REV00006','new WWWW',5,0),('REV00007','AAAAA',5,0);
+INSERT INTO `material` VALUES ('CDA00001','Classic Songs',6,10),('CDA00002','Their Greatest Hits (1971–1975)',6,5),('CDA00003','Thriller',6,10),('CDA00004','Greatest Hits',6,10),('CDA00005','Legend',6,11),('CDA00006','Best of EDM',6,10),('DVD00001','The Lord of the Rings',7,0),('DVD00003','The Godfather',7,0),('DVD00004','The Empire Strikes Back',7,0),('LIB00001','Cien años de soledad',4,5),('LIB00002','Don Quijote de la Mancha',4,10),('LIB00003','El Principito',4,11),('LIB00004','La Odisea',4,10),('LIB00005','Orgullo y prejuicio',4,10),('REV00001','PCMag',5,11),('REV00002','WIRED',5,10),('REV00003','PC Gamer',5,15),('REV00007','PC World',5,10);
 /*!40000 ALTER TABLE `material` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +160,7 @@ CREATE TABLE `revista` (
 
 LOCK TABLES `revista` WRITE;
 /*!40000 ALTER TABLE `revista` DISABLE KEYS */;
-INSERT INTO `revista` VALUES (1,'REV00001','Test Revista','Test Revista','2022-10-29'),(2,'REV00002','Test Revista edit','Test Revista x','2022-10-29'),(3,'REV00003','Test Revista','Test Revista','2022-10-29'),(6,'REV00006','newWWWW','vewWWW','2022-10-29'),(7,'REV00007','BBBBB','CCCCC','2022-10-22');
+INSERT INTO `revista` VALUES (1,'REV00001','Ziff Davis','Mensual','2022-10-29'),(2,'REV00002','Condé Nast','Mensual','2022-10-29'),(3,'REV00003','Future plc.','Mensual','2022-10-29'),(7,'REV00007','IDG','Mensual','2022-10-04');
 /*!40000 ALTER TABLE `revista` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -566,4 +566,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-31 22:13:47
+-- Dump completed on 2022-11-01 21:35:58
